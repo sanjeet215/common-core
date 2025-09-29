@@ -1,0 +1,5 @@
+/validators/target/
+/base-service/target/
+/base-service/src/main/java/com/doc/baseservice/._BaseService.java
+/base-service/src/main/java/com/doc/baseservice/._BaseServiceImpl.java
+/.idea/
