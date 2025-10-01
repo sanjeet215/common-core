@@ -16,8 +16,8 @@ public class RequestLogEntity {
     private LocalDateTime timestamp;        // When request was received
     private String httpMethod;              // GET, POST, PUT, DELETE etc.
     private String requestUri;              // Full request URI with path and query string
-    private Map<String, String> headers;   // Request headers
-    private Map<String, String> parameters; // Query parameters or form parameters
+//    private Map<String, String> headers;   // Request headers
+//    private Map<String, String> parameters; // Query parameters or form parameters
     private String remoteIpAddress;        // Client IP address
     private String userAgent;              // User-Agent header
     private String contentType;            // Request Content-Type
@@ -26,6 +26,14 @@ public class RequestLogEntity {
     private String sessionId;              // HTTP session ID if applicable
     private String authenticatedUser;     // Authenticated username or JWT subject if available
     private long processingTimeMs;         // Time taken to process the request
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public LocalDateTime getTimestamp() {
         return timestamp;
@@ -49,22 +57,6 @@ public class RequestLogEntity {
 
     public void setRequestUri(String requestUri) {
         this.requestUri = requestUri;
-    }
-
-    public Map<String, String> getHeaders() {
-        return headers;
-    }
-
-    public void setHeaders(Map<String, String> headers) {
-        this.headers = headers;
-    }
-
-    public Map<String, String> getParameters() {
-        return parameters;
-    }
-
-    public void setParameters(Map<String, String> parameters) {
-        this.parameters = parameters;
     }
 
     public String getRemoteIpAddress() {
