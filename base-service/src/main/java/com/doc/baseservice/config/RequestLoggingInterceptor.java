@@ -35,18 +35,18 @@ public class RequestLoggingInterceptor implements HandlerInterceptor {
         LocalDateTime startDateTime = LocalDateTime.ofInstant(start, ZoneId.systemDefault());
         long durationMs = Instant.now().toEpochMilli() - start.toEpochMilli();
 
-        RequestLogEntity logDto = new RequestLogEntity();
-        logDto.setTimestamp(startDateTime);
-        logDto.setHttpMethod(request.getMethod());
-        logDto.setRequestUri(request.getRequestURI());
-        logDto.setRemoteIpAddress(request.getRemoteAddr());
-        logDto.setUserAgent(request.getHeader("User-Agent"));
-        logDto.setContentType(request.getContentType());
+        RequestLogEntity requestLogEntity = new RequestLogEntity();
+        requestLogEntity.setTimestamp(startDateTime);
+        requestLogEntity.setHttpMethod(request.getMethod());
+        requestLogEntity.setRequestUri(request.getRequestURI());
+        requestLogEntity.setRemoteIpAddress(request.getRemoteAddr());
+        requestLogEntity.setUserAgent(request.getHeader("User-Agent"));
+        requestLogEntity.setContentType(request.getContentType());
 
         // Add headers or parameters as needed
         // Example: logDto.setHeaders(copyHeaders(request));
 
-        logDto.setProcessingTimeMs(durationMs);
-        repository.save(logDto);
+        requestLogEntity.setProcessingTimeMs(durationMs);
+        repository.save(requestLogEntity);
     }
 }
